@@ -390,7 +390,7 @@ with tab_call_nlp:
             with st.spinner("Analyzing transcript (summarizing, tagging, sentiment)..."):
                 try:
                     response = requests.post(
-                        f"{BACKEND_URL}/call-intelligence/call_nlp", # Changed URL here
+                        f"{BACKEND_URL}/call_intelligence/call_nlp",
                         json={"transcript_text": transcript_input, "call_id": f"call_{datetime.now().strftime('%Y%m%d%H%M%S')}"},
                         timeout=120 # Extended timeout for summarization, which can be resource-intensive
                     )
@@ -452,7 +452,7 @@ with tab_call_nlp:
                         "transcript_text": st.session_state.current_qa_transcript
                     }
                     qa_response = requests.post(
-                        f"{BACKEND_URL}/call-intelligence/ask_question", # New Q&A endpoint
+                        f"{BACKEND_URL}/call_intelligence/ask_question",
                         json=qa_payload,
                         timeout=60 # Shorter timeout for quick Q&A
                     )
