@@ -17,7 +17,7 @@ class NLPService:
         if not self.groq_client:
             logging.error("Groq client not initialized. Check .env file.")
         
-        self.default_groq_model = "llama3-8b-8192" 
+        self.default_groq_model = "llama-3.1-8b-instant"
 
     def _initialize_groq_client(self):
         """Initializes the Groq OpenAI client."""
